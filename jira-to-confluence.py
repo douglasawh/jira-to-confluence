@@ -14,6 +14,7 @@ from requests.auth import HTTPBasicAuth
 url = "https://confluence.roguewave.com/wiki/rest/api/content"
 
 password = getpass.getpass()
+user = getpass.getuser()
 
 headers = {
    "Accept": "application/json",
@@ -62,7 +63,7 @@ payload = json.dumps( {
 } )
 
 #new line!
-requests.get(url, auth=HTTPBasicAuth('dwhitfield', password))
+requests.get(url, auth=HTTPBasicAuth(user, password))
 
 response = requests.request(
    "POST",
